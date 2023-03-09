@@ -14,6 +14,9 @@
 		3A93A01029B874750071E9ED /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A00F29B874750071E9ED /* AuthenticatorTests.swift */; };
 		3A93A01A29B874750071E9ED /* AuthenticatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A01929B874750071E9ED /* AuthenticatorUITests.swift */; };
 		3A93A01C29B874750071E9ED /* AuthenticatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A01B29B874750071E9ED /* AuthenticatorUITestsLaunchTests.swift */; };
+		3A93A03229B876A70071E9ED /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93A03129B876A70071E9ED /* Authenticator.swift */; };
+		3A93A03529B877A30071E9ED /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93A03429B8777C0071E9ED /* libresolv.tbd */; };
+		3A93A03829B87C630071E9ED /* libauthenticator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A93A03729B87B910071E9ED /* libauthenticator.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,11 @@
 		3A93A01529B874750071E9ED /* AuthenticatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A93A01929B874750071E9ED /* AuthenticatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorUITests.swift; sourceTree = "<group>"; };
 		3A93A01B29B874750071E9ED /* AuthenticatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3A93A02F29B876360071E9ED /* Authenticator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Authenticator-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A93A03029B876580071E9ED /* authenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = authenticator.h; path = Libs/authenticator.h; sourceTree = SOURCE_ROOT; };
+		3A93A03129B876A70071E9ED /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		3A93A03429B8777C0071E9ED /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		3A93A03729B87B910071E9ED /* libauthenticator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libauthenticator.a; path = Libs/arrch64/libauthenticator.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A93A03529B877A30071E9ED /* libresolv.tbd in Frameworks */,
+				3A93A03829B87C630071E9ED /* libauthenticator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +89,7 @@
 				3A93A00E29B874750071E9ED /* AuthenticatorTests */,
 				3A93A01829B874750071E9ED /* AuthenticatorUITests */,
 				3A939FFB29B874740071E9ED /* Products */,
+				3A93A03329B8777B0071E9ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +106,7 @@
 		3A939FFC29B874740071E9ED /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				3A93A02E29B875500071E9ED /* Libs */,
 				3A939FFD29B874740071E9ED /* AuthenticatorApp.swift */,
 				3A939FFF29B874740071E9ED /* ContentView.swift */,
 				3A93A00129B874750071E9ED /* Assets.xcassets */,
@@ -127,6 +139,25 @@
 				3A93A01B29B874750071E9ED /* AuthenticatorUITestsLaunchTests.swift */,
 			);
 			path = AuthenticatorUITests;
+			sourceTree = "<group>";
+		};
+		3A93A02E29B875500071E9ED /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				3A93A03029B876580071E9ED /* authenticator.h */,
+				3A93A02F29B876360071E9ED /* Authenticator-Bridging-Header.h */,
+				3A93A03129B876A70071E9ED /* Authenticator.swift */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		3A93A03329B8777B0071E9ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A93A03729B87B910071E9ED /* libauthenticator.a */,
+				3A93A03429B8777C0071E9ED /* libresolv.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +292,7 @@
 			files = (
 				3A93A00029B874740071E9ED /* ContentView.swift in Sources */,
 				3A939FFE29B874740071E9ED /* AuthenticatorApp.swift in Sources */,
+				3A93A03229B876A70071E9ED /* Authenticator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,15 +454,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Authenticator/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libs";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libs/arrch64";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Authenticator.Authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Authenticator/Authenticator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -447,15 +482,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Authenticator/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libs";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libs/arrch64";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Authenticator.Authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Authenticator/Authenticator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

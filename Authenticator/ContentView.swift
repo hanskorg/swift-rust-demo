@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    let authenticator =  Authenticator()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(authenticator.getCode(secret: "I3VFM3JKMNDJCDH5BMBEEQAW6KJ6NOE3"))
         }
         .padding()
     }

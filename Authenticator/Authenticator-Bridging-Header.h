@@ -8,5 +8,7 @@
 #ifndef Authenticator_Bridging_Header_h
 #define Authenticator_Bridging_Header_h
 
+#define DEFINE_QRCODE
+#import "authenticator.h"
 
 #endif /* Authenticator_Bridging_Header_h */
